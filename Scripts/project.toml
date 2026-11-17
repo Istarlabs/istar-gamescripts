@@ -1,0 +1,33 @@
+# What this project differs by. Everything else lives in devscripts (https://github.com/Istarlabs/devscripts).
+name = "istar-gamescripts"
+env_prefix = "ISTAR_GAMESCRIPTS"
+
+[rust]
+binary = "istar-gamescripts"
+install_root = "~/.local"
+
+# `rust.py install` renders the Dolphin menu from its definition for ~/.local/bin; no finished .desktop file is kept.
+[rust.service_menu]
+definitions = ["servicemenus/istar-gamescripts.menu.toml"]
+directory = "~/.local/share/kio/servicemenus"
+
+# python3 Scripts/rpm.py publish: the package for an RPM repository (see rpm.py's docstring).
+# packaging/rpm-stage.sh lays out the binary and the menu rendered for /usr/bin.
+[rpm]
+name = "istar-gamescripts"
+summary = "Helpers for games on Linux under Steam/Proton, with a Dolphin menu"
+description = "Proton logs without the Wine noise, which Steam game a folder belongs to, its Proton version and launch options, save folders, a prefix's recent logs and device identity, and whether a host is blocked - on the command line and from Dolphin's context menu."
+license = "GPL-3.0-or-later"
+url = "https://github.com/Istarlabs/istar-gamescripts"
+version_file = "Cargo.toml"
+build = ["cargo build --release --locked", "sh packaging/rpm-stage.sh {stage}"]
+# dig for dnscheck; kurodlg shows the menu's output with a Copy button, konsole is the fallback.
+requires = ["/usr/bin/dig"]
+recommends = ["kurodlg", "konsole"]
+
+[spdx]
+holder = "Pascal Klose"
+licence = "GPL-3.0-or-later"
+
+[repo]
+main_branch = "main"

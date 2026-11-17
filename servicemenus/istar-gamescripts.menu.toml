@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: 2026 Pascal Klose
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+# The Dolphin menu, rendered by devscripts' servicemenu.py: `rust.py install` for ~/.local/bin, the RPM for /usr/bin.
+# One menu serves logs and folders, so the log entry also shows on folders and the game entries on logs; each says so.
+
+mime = ["inode/directory", "text/x-log"]
+submenu = { en = "Game tools", de = "Spiele-Werkzeuge" }
+
+[[action]]
+id = "steamlog"
+name = { en = "Summarise Proton log", de = "Proton-Log auswerten" }
+icon = "text-x-log"
+exec = "{bin}/istar-gamescripts menu steamlog %F"
+
+[[action]]
+id = "whereis"
+name = { en = "Steam game: APPID and compatdata", de = "Steam-Spiel: APPID und compatdata" }
+icon = "system-search"
+exec = "{bin}/istar-gamescripts menu whereis %f"
+
+[[action]]
+id = "status"
+name = { en = "Steam game: Proton, launch options, caches", de = "Steam-Spiel: Proton, Startoptionen, Caches" }
+icon = "utilities-system-monitor"
+exec = "{bin}/istar-gamescripts menu status %f"
+
+[[action]]
+id = "saves"
+name = { en = "Steam game: find save folders", de = "Steam-Spiel: Speicherstände finden" }
+icon = "document-save"
+exec = "{bin}/istar-gamescripts menu saves %f"
+
+[[action]]
+id = "prefixLogs"
+name = { en = "Prefix: recent logs", de = "Prefix: neue Logs (2 Stunden)" }
+icon = "document-open-recent"
+exec = "{bin}/istar-gamescripts menu prefix-logs %f"
+
+[[action]]
+id = "prefixIds"
+name = { en = "Prefix: device identity", de = "Prefix: Geräte-Identität" }
+icon = "computer"
+exec = "{bin}/istar-gamescripts menu prefix-ids %f"
+
+[[action]]
+id = "dnscheck"
+name = { en = "Prefix: check for blocked hosts…", de = "Prefix: gesperrte Hosts prüfen…" }
+icon = "network-server"
+exec = "{bin}/istar-gamescripts menu dnscheck %f"

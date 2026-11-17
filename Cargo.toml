@@ -1,0 +1,15 @@
+[package]
+name = "istar-gamescripts"
+version = "0.1.0"
+edition = "2024"
+description = "Helpers for games on Linux under Steam/Proton: Proton logs, game folders, prefixes, saves, blocked hosts"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/Istarlabs/istar-gamescripts"
+authors = ["Pascal Klose <istarlabs_dev@proton.me>"]
+
+[dependencies]
+chrono = "0.4.45"
+clap = { version = "4.6.7", features = ["derive"] }
+regex = "1.13.1"
+walkdir = "2.5.0"
+zip = { version = "9.3.0", default-features = false, features = ["deflate"] }
