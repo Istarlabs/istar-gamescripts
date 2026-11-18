@@ -31,3 +31,25 @@ licence = "GPL-3.0-or-later"
 
 [repo]
 main_branch = "main"
+
+# Created by `repo.py init` and `repo.py labels`, next to the shared ones.
+
+[[repo.labels]]
+name = "area:steam"
+color = "1d76db"
+description = "Steam libraries, prefixes and logs"
+
+[[repo.labels]]
+name = "area:dns"
+color = "0e8a16"
+description = "DNS checks"
+
+[[repo.labels]]
+name = "area:servicemenu"
+color = "d4c5f9"
+description = "Dolphin / KDE service menus"
+
+[[repo.labels]]
+name = "packaging"
+color = "fbca04"
+description = "Packages and installation"
